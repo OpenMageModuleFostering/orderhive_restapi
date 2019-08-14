@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Orderhive_Restapi</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Orderhive allows admin to manage inventory, orders, shipping and contacts from a single interface.</summary>
+    <description>"Orderhive RestAPI Integration" Extension for Magento will provide smooth and reliable RestAPIs (products, customers and sales orders) for sharing large amount of data between your store and Orderhive without affecting your store performance. It provides an interface to revoke permission from Orderhive in order to stop API calls.</description>
+    <notes>It provides a bridge between Magento and Orderhive to exchange data in a form of Rest APIs.</notes>
+    <authors><author><name>Jayneel Patel</name><user>jayneel</user><email>jayneel@openxcell.com</email></author><author><name>Niyati Patel</name><user>niyati7</user><email>niyati@openxcelltechnolabs.com</email></author></authors>
+    <date>2016-05-13</date>
+    <time>11:35:51</time>
+    <contents><target name="magelocal"><dir><dir name="Orderhive"><dir><dir name="Restapi"><dir name="Helper"><file name="Data.php" hash="38c518a233dd81e503671c17f5693687"/></dir><dir name="Model"><dir name="Api2"><dir name="Customer"><dir name="Rest"><dir name="Admin"><file name="V1.php" hash="dbccdafc8f5d34be40e250c9b39007b7"/></dir></dir><file name="Rest.php" hash="680b9ad673c5881bb90ec9b73a14b789"/></dir><dir name="Order"><dir name="Rest"><dir name="Admin"><file name="V1.php" hash="de30d47be6461bebf125f67be3c7a3a0"/></dir></dir><file name="Rest.php" hash="3a9e5fbd1cf8518c6c6b7a1fc9ca772c"/></dir><file name="Order.php" hash="a953a55c47f167d3ed805a09d955271d"/><dir name="Product"><dir name="Rest"><dir name="Admin"><file name="V1.php" hash="6998ad9f26d0385900c30de0e78dc304"/></dir></dir><file name="Rest.php" hash="18f55c1872784840b13c15a0bbbeb3a9"/></dir></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="f2fc00926ccc5ef37e1405c82eb80bff"/><file name="api2.xml" hash="539851f8abfa003fa1582c03e16ca2a5"/><file name="config.xml" hash="ee839e036d108366a9b89fab9a781bd1"/><file name="system.xml" hash="c61198c01afaa3303d6dc77526d29769"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir><dir name="modules"><file name="Orderhive_Restapi.xml" hash="f71701a1803ed12d95f70fc6042caae0"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>
