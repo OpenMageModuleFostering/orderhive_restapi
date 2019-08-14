@@ -359,6 +359,15 @@ class Orderhive_Restapi_Model_Api2_Order extends Mage_Api2_Model_Resource
                     $itemData['discount_amount'] = ($itemData['discount_amount'] <= 0) ? $tempArray['discount_amount'] : $itemData['discount_amount'];
                     $itemData['row_total'] = ($itemData['row_total'] <= 0) ? $tempArray['row_total'] : $itemData['row_total'];
                     $itemData['base_row_total'] = ($itemData['base_row_total'] <= 0) ? $tempArray['base_row_total'] : $itemData['base_row_total'];
+                    $itemData['row_weight'] = ($itemData['row_weight'] <= 0) ? $tempArray['row_weight'] : $itemData['row_weight'];
+                    $itemData['price_incl_tax'] = ($itemData['price_incl_tax'] <= 0) ? $tempArray['price_incl_tax'] : $itemData['price_incl_tax'];
+                    $itemData['base_price_incl_tax'] = ($itemData['base_price_incl_tax'] == null) ? $tempArray['base_price_incl_tax'] : $itemData['base_price_incl_tax'];
+                    $itemData['row_total_incl_tax'] = ($itemData['row_total_incl_tax'] == null) ? $tempArray['row_total_incl_tax'] : $itemData['row_total_incl_tax'];
+                    $itemData['base_row_total_incl_tax'] = ($itemData['base_row_total_incl_tax'] == null) ? $tempArray['base_row_total_incl_tax'] : $itemData['base_row_total_incl_tax'];
+                    $itemData['hidden_tax_amount'] = ($itemData['hidden_tax_amount'] == null) ? $tempArray['hidden_tax_amount'] : $itemData['hidden_tax_amount'];
+                    $itemData['base_hidden_tax_amount'] = ($itemData['base_hidden_tax_amount'] == null) ? $tempArray['base_hidden_tax_amount'] : $itemData['base_hidden_tax_amount'];
+                    $itemData['base_weee_tax_applied_row_amnt'] = ($itemData['base_weee_tax_applied_row_amnt'] == null) ? $tempArray['base_weee_tax_applied_row_amnt'] : $itemData['base_weee_tax_applied_row_amnt'];
+                    $itemData['base_weee_tax_applied_row_amount'] = ($itemData['base_weee_tax_applied_row_amount'] == null) ? $tempArray['base_weee_tax_applied_row_amount'] : $itemData['base_weee_tax_applied_row_amount'];
                     $tempArray = array();
                 }
                 $result[$cnt]['items'][$key] = $itemData;
