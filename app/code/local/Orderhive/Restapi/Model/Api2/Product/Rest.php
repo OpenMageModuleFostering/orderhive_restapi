@@ -47,8 +47,11 @@ abstract class Orderhive_Restapi_Model_Api2_Product_Rest extends Mage_Catalog_Mo
      */
     protected function _retrieve()
     {
+        $images = array();
         $product = $this->_getProduct();
         $childProductsData = array();
+        foreach ($product->getMediaGalleryImages() as $image)
+            $images[] = $image->getUrl();
         if($product->type_id == 'simple')
             $parentId = Mage::getResourceSingleton('catalog/product_type_configurable')->getParentIdsByChild($product->entity_id);
         elseif($product->type_id == 'configurable')
@@ -56,7 +59,10 @@ abstract class Orderhive_Restapi_Model_Api2_Product_Rest extends Mage_Catalog_Mo
             $childIds = Mage::getResourceSingleton('catalog/product_type_configurable')->getChildrenIds($product->entity_id);
             foreach($childIds[0] as $key => $value)
             {
+                $images1 = array();
                 $child = Mage::getModel('catalog/product')->load($value);
+                foreach ($child->getMediaGalleryImages() as $image)
+                    $images1[] = $image->getUrl();
                 $childProductsData[] = array(
                     'entity_id'    => $child->entity_id,
                     'sku'           => $child->sku,
@@ -66,6 +72,9 @@ abstract class Orderhive_Restapi_Model_Api2_Product_Rest extends Mage_Catalog_Mo
                     'qty'           => $child->stock_item->qty,
                     'set'           => $child->attribute_set_id,
                     'type'          => $child->type_id,
+                    'weight'        => $child->getWeight(),
+                    'product_link'  => $child->getProductUrl(),
+                    'images'        => $images1,
                     'created_at'    => $child->created_at
                 );
             }
@@ -79,6 +88,9 @@ abstract class Orderhive_Restapi_Model_Api2_Product_Rest extends Mage_Catalog_Mo
             'qty'           => $product->stock_item->qty,
             'set'           => $product->attribute_set_id,
             'type'          => $product->type_id,
+            'weight'        => $product->getWeight(),
+            'product_link'  => $product->getProductUrl(),
+            'images'        => $images,
             'created_at'    => $product->created_at,
             'parent_id'      => $parentId,
             'childProducts' => $childProductsData

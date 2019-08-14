@@ -113,10 +113,12 @@ class Orderhive_Restapi_Model_Api2_Product_Rest_Admin_V1 extends Orderhive_Resta
         
         foreach ($collection as $product1) 
         {
-            $parentId = array();
+            $parentId = $images = array();
             $product = Mage::helper('catalog/product')->getProduct($product1->getId(), $storeId);
             if($product->getTypeId() == 'simple')
                 $parentId = Mage::getResourceSingleton('catalog/product_type_configurable')->getParentIdsByChild($product->getId());
+            foreach ($product->getMediaGalleryImages() as $image)
+                $images[] = $image->getUrl();
             $products[] = array(
                 'entity_id'    => $product->getId(),
                 'sku'           => $product->getSku(),
@@ -126,6 +128,9 @@ class Orderhive_Restapi_Model_Api2_Product_Rest_Admin_V1 extends Orderhive_Resta
                 'qty'           => $product->getStockItem()->getQty(),
                 'set'           => $product->getAttributeSetId(),
                 'type'          => $product->getTypeId(),
+                'weight'        => $product->getWeight(),
+                'product_link'  => $product->getProductUrl(),
+                'images'        => $images,
                 'created_at'    => $product->getCreatedAt(),
                 'parent_id'      => $parentId
             );

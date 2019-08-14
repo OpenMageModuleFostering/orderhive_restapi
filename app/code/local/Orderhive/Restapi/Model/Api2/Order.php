@@ -323,11 +323,19 @@ class Orderhive_Restapi_Model_Api2_Order extends Mage_Api2_Model_Resource
         else
             $tax_config['price'] = 'outward';
 
+        $query2 = "SELECT value FROM  ".$tableName." WHERE  `path` LIKE  'tax/calculation/shipping_includes_tax'";
+        $result2 = $readConnection->fetchAll($query2);
+        if($result2[0]['value'] == 1)
+            $tax_config['shipping'] = 'inward';
+        else
+            $tax_config['shipping'] = 'outward';
+
         foreach ($collection as $order) 
         {
             $shipCnt = 0;
             $result[$cnt] = $order->getData();
             $result[$cnt]['tax_type'] = $tax_config['price'];
+            $result[$cnt]['shipping_tax_type'] = $tax_config['shipping'];
 			if($order->getShippingAddress() != Null)
 				$result[$cnt]['shipping_address'] = $order->getShippingAddress()->getData();
 			else
