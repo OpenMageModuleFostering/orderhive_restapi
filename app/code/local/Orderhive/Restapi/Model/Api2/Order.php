@@ -328,8 +328,14 @@ class Orderhive_Restapi_Model_Api2_Order extends Mage_Api2_Model_Resource
             $shipCnt = 0;
             $result[$cnt] = $order->getData();
             $result[$cnt]['tax_type'] = $tax_config['price'];
-            $result[$cnt]['shipping_address'] = $order->getShippingAddress()->getData();
-            $result[$cnt]['billing_address'] = $order->getBillingAddress()->getData();
+			if($order->getShippingAddress() != Null)
+				$result[$cnt]['shipping_address'] = $order->getShippingAddress()->getData();
+			else
+				$result[$cnt]['shipping_address'] = Null;
+			if($order->getBillingAddress() != Null)
+				$result[$cnt]['billing_address'] = $order->getBillingAddress()->getData();
+			else
+				$result[$cnt]['billing_address'] = Null;
             foreach ($order->getAllItems() as $key => $item) 
             {
                 $itemData = $item->getData();
