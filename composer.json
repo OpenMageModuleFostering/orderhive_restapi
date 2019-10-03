@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Orderhive_Restapi",
+    "name": "OpenMageModuleFostering\/Orderhive_Restapi",
     "type": "magento-module",
     "license": "Open-Software-License-(OSL)",
     "homepage": "",
     "description": "Orderhive allows admin to manage inventory, orders, shipping and contacts from a single interface.",
     "authors": [
-    {
-        "name": "Jayneel Patel",
-        "email": "jayneel@openxcell.com"
-    }
-],
+        {
+            "name": "Jayneel Patel",
+            "email": "jayneel@openxcell.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
